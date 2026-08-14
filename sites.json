@@ -1,19 +1,189 @@
 {
   "sites": [
     {
-      "id": "ilpost",
-      "name": "Il Post",
-      "url": "https://www.ilpost.it/"
+      "id": "european-policy-centre",
+      "name": "European Policy Centre",
+      "url": "https://www.epc.eu/"
     },
     {
-      "id": "ansa",
-      "name": "ANSA",
-      "url": "https://www.ansa.it/"
+      "id": "geneva-call",
+      "name": "Geneva Call",
+      "url": "https://www.genevacall.org/careers/"
     },
     {
-      "id": "governo",
-      "name": "Governo italiano",
-      "url": "https://www.governo.it/"
+      "id": "bruegel",
+      "name": "Bruegel",
+      "url": "https://www.bruegel.org/careers"
+    },
+    {
+      "id": "the-good-lobby",
+      "name": "The Good Lobby",
+      "url": "https://thegoodlobby.eu/careers/"
+    },
+    {
+      "id": "european-institute-of-peace",
+      "name": "European Institute of Peace",
+      "url": "https://vacancies.eip.org/jobs"
+    },
+    {
+      "id": "ceps",
+      "name": "CEPS",
+      "url": "https://www.ceps.eu/about-ceps/career-opportunities/"
+    },
+    {
+      "id": "global-governance-institute",
+      "name": "Global Governance Institute",
+      "url": "https://www.globalgovernance.eu/"
+    },
+    {
+      "id": "brussels-institute-for-geopolitics",
+      "name": "Brussels Institute for Geopolitics",
+      "url": "https://big-europe.eu/home"
+    },
+    {
+      "id": "friends-of-europe",
+      "name": "Friends of Europe",
+      "url": "https://friendsofeurope-1721722951.teamtailor.com/"
+    },
+    {
+      "id": "feps",
+      "name": "Foundation for European Progressive Studies",
+      "url": "https://feps-europe.eu/careers/"
+    },
+    {
+      "id": "carnegie-europe",
+      "name": "Carnegie Europe",
+      "url": "https://carnegieendowment.org/europe/employment-opportunities-at-carnegie-europe"
+    },
+    {
+      "id": "solidar",
+      "name": "SOLIDAR",
+      "url": "https://www.solidar.org/work-with-us/"
+    },
+    {
+      "id": "political-intelligence",
+      "name": "Political Intelligence",
+      "url": "https://political-intelligence.com/jobs/"
+    },
+    {
+      "id": "rasmussen-global",
+      "name": "Rasmussen Global",
+      "url": "https://rasmussenglobal.com/careers/"
+    },
+    {
+      "id": "european-endowment-for-democracy",
+      "name": "European Endowment for Democracy",
+      "url": "https://democracyendowment.eu/work-for-us"
+    },
+    {
+      "id": "institut-montaigne",
+      "name": "Institut Montaigne",
+      "url": "https://www.institutmontaigne.org/en/careers"
+    },
+    {
+      "id": "tepsa",
+      "name": "TEPSA",
+      "url": "https://www.linkedin.com/company/tepsabrussels/posts/?feedView=all"
+    },
+    {
+      "id": "martens-centre",
+      "name": "Wilfried Martens Centre for European Studies",
+      "url": "https://www.martenscentre.eu/join-team/"
+    },
+    {
+      "id": "equinet",
+      "name": "Equinet",
+      "url": "https://equineteurope.org/vacancies/"
+    },
+    {
+      "id": "eacon",
+      "name": "EACON - European Affairs Consulting Group",
+      "url": "https://www.eacongroup.com/careers/wupba_trainee/"
+    },
+    {
+      "id": "dcaf",
+      "name": "DCAF",
+      "url": "https://www.dcaf.ch/vacancies"
+    },
+    {
+      "id": "european-womens-lobby",
+      "name": "European Women's Lobby",
+      "url": "https://womenlobby.org/contact/jobs/"
+    },
+    {
+      "id": "un-brussels",
+      "name": "UN Office / UNDP Office Brussels",
+      "url": "https://unric.org/en/brussels-vacancies/"
+    },
+    {
+      "id": "heinrich-boell-stiftung",
+      "name": "Heinrich Böll Stiftung",
+      "url": "https://eu.boell.org/en/categories/vacancies"
+    },
+    {
+      "id": "eapn",
+      "name": "EAPN - European Anti-Poverty Network",
+      "url": "https://www.eapn.eu/"
+    },
+    {
+      "id": "euralia",
+      "name": "Euralia",
+      "url": "https://www.euralia.eu/actualites/"
+    },
+    {
+      "id": "giz",
+      "name": "GIZ Brussels",
+      "url": "https://www.giz.de/en/career/jobs/trainee-programmes"
+    },
+    {
+      "id": "egmont",
+      "name": "Egmont Institute",
+      "url": "https://egmontinstitute.be/jobs-internships-and-opportunities/"
+    },
+    {
+      "id": "ecdpm",
+      "name": "ECDPM",
+      "url": "https://ecdpm.org/about/careers"
+    },
+    {
+      "id": "eias",
+      "name": "EIAS",
+      "url": "https://eias.org/vacancies/"
+    },
+    {
+      "id": "euiss",
+      "name": "EUISS",
+      "url": "https://www.iss.europa.eu/opportunities"
+    },
+    {
+      "id": "odi",
+      "name": "ODI",
+      "url": "https://careers.odi.org/"
+    },
+    {
+      "id": "rand-europe",
+      "name": "RAND Europe",
+      "url": "https://www.rand.org/randeurope/employment.html"
+    },
+    {
+      "id": "bertelsmann-stiftung",
+      "name": "Bertelsmann Stiftung",
+      "url": "https://www.bertelsmann-stiftung.de/en/careers"
+    },
+    {
+      "id": "konrad-adenauer-stiftung",
+      "name": "Konrad Adenauer Stiftung Brussels Office",
+      "url": "https://www.kas.de/en/static-content-details/-/content/stellenausschreibungen-des-europabueros-bruessel"
+    },
+    {
+      "id": "csds",
+      "name": "Centre for Security, Diplomacy and Strategy - Brussels School of Governance",
+      "url": "https://csds.vub.be/vacancies/"
+    },
+    {
+      "id": "international-idea",
+      "name": "International IDEA",
+      "url": "https://careers.idea.int/"
     }
   ]
 }
