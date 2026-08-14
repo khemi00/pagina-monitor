@@ -1,3 +1,59 @@
 {
-  "sites": {}
+  "last_run": "2026-08-14T23:36:12+02:00",
+  "sites": {
+    "ilpost": {
+      "name": "Il Post",
+      "url": "https://www.ilpost.it/",
+      "current_hash": "bfc415a06ecb31cc0152a48d263afc10a0f4adb542407ef812dc12cbe975c6b3",
+      "last_checked": "2026-08-14T23:36:12+02:00",
+      "last_changed": null,
+      "last_changed_check": null,
+      "last_error": null,
+      "total_checks": 1,
+      "history": [
+        {
+          "check": 1,
+          "timestamp": "2026-08-14T23:36:12+02:00",
+          "changed": false,
+          "status": "baseline"
+        }
+      ]
+    },
+    "ansa": {
+      "name": "ANSA",
+      "url": "https://www.ansa.it/",
+      "current_hash": "49205c1ea8d4fc87027bc443a9c37c4fc52030befb1de94933d53b49262d1215",
+      "last_checked": "2026-08-14T23:36:13+02:00",
+      "last_changed": null,
+      "last_changed_check": null,
+      "last_error": null,
+      "total_checks": 1,
+      "history": [
+        {
+          "check": 1,
+          "timestamp": "2026-08-14T23:36:13+02:00",
+          "changed": false,
+          "status": "baseline"
+        }
+      ]
+    },
+    "governo": {
+      "name": "Governo italiano",
+      "url": "https://www.governo.it/",
+      "current_hash": "cb0570af2618d7d2e57286754a759cc2462eed71b9890374d81e5f77ee9348e6",
+      "last_checked": "2026-08-14T23:36:15+02:00",
+      "last_changed": null,
+      "last_changed_check": null,
+      "last_error": null,
+      "total_checks": 1,
+      "history": [
+        {
+          "check": 1,
+          "timestamp": "2026-08-14T23:36:15+02:00",
+          "changed": false,
+          "status": "baseline"
+        }
+      ]
+    }
+  }
 }
