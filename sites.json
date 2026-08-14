@@ -1,0 +1,19 @@
+{
+  "sites": [
+    {
+      "id": "ilpost",
+      "name": "Il Post",
+      "url": "https://www.ilpost.it/"
+    },
+    {
+      "id": "ansa",
+      "name": "ANSA",
+      "url": "https://www.ansa.it/"
+    },
+    {
+      "id": "governo",
+      "name": "Governo italiano",
+      "url": "https://www.governo.it/"
+    }
+  ]
+}
