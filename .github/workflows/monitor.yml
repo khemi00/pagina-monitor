@@ -1,0 +1,55 @@
+name: Controlla pagina
+
+on:
+  # Controllo automatico una volta al giorno
+  schedule:
+    - cron: "17 8 * * *"
+      timezone: "Europe/Rome"
+
+  # Permette di avviare il controllo manualmente
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: page-monitor
+  cancel-in-progress: false
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Scarica il repository
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      - name: Configura Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Controlla la pagina
+        run: python monitor.py
+
+      - name: Controlla se state.json è cambiato
+        id: changes
+        run: |
+          if git diff --quiet state.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Salva il nuovo stato
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "Page Monitor Bot"
+          git config user.email "page-monitor@users.noreply.github.com"
+
+          git add state.json
+          git commit -m "Aggiorna controllo pagina"
+          git push
