@@ -3,8 +3,8 @@ name: Controlla pagina
 on:
   # Controllo automatico una volta al giorno
   schedule:
-    - cron: "17 8 * * *"
-      timezone: "Europe/Rome"
+  - cron: "*/30 * * * *"
+    timezone: "Europe/Rome"
 
   # Permette di avviare il controllo manualmente
   workflow_dispatch:
