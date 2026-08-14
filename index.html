@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Page Monitor</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      background: #f4f5f7;
+      color: #202124;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #666;
+      margin-top: 0;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+
+      box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .status-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #aaa;
+    }
+
+    .status-dot.ok {
+      background: #2e7d32;
+    }
+
+    .status-dot.changed {
+      background: #d32f2f;
+    }
+
+    .status-dot.loading {
+      background: #f9a825;
+    }
+
+    .status-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .info-label {
+      font-size: 13px;
+      text-transform: uppercase;
+      color: #777;
+      margin-bottom: 5px;
+    }
+
+    .info-value {
+      font-size: 16px;
+      word-break: break-word;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 14px;
+
+      border: none;
+      border-radius: 10px;
+
+      background: #111;
+      color: white;
+
+      font-size: 16px;
+      font-weight: 600;
+
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #333;
+    }
+
+    button:disabled {
+      background: #999;
+      cursor: not-allowed;
+    }
+
+    .message {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+      text-align: center;
+    }
+
+    .history-item {
+      display: grid;
+      grid-template-columns: 110px 1fr auto;
+      gap: 15px;
+
+      padding: 15px 0;
+
+      border-bottom: 1px solid #eee;
+
+      align-items: center;
+    }
+
+    .history-item:last-child {
+      border-bottom: none;
+    }
+
+    .check-number {
+      font-weight: 600;
+    }
+
+    .history-time {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .badge {
+      font-size: 12px;
+      font-weight: 600;
+
+      padding: 5px 9px;
+
+      border-radius: 20px;
+
+      white-space: nowrap;
+    }
+
+    .badge.baseline {
+      background: #eeeeee;
+      color: #555;
+    }
+
+    .badge.unchanged {
+      background: #e8f5e9;
+      color: #2e7d32;
+    }
+
+    .badge.changed {
+      background: #ffebee;
+      color: #c62828;
+    }
+
+    .page-link {
+      color: inherit;
+    }
+
+    .empty {
+      color: #777;
+      text-align: center;
+      padding: 25px 0;
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        padding: 25px 15px;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .history-item {
+        grid-template-columns: 1fr;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Page Monitor</h1>
+
+  <p class="subtitle">
+    Controllo automatico delle modifiche della pagina
+  </p>
+
+
+  <div class="card">
+
+    <div class="status">
+
+      <div
+        id="statusDot"
+        class="status-dot loading">
+      </div>
+
+      <div
+        id="statusTitle"
+        class="status-title">
+        Caricamento...
+      </div>
+
+    </div>
+
+
+    <div class="info-grid">
+
+      <div>
+
+        <div class="info-label">
+          Pagina monitorata
+        </div>
+
+        <div class="info-value">
+
+          <a
+            id="pageUrl"
+            class="page-link"
+            href="#"
+            target="_blank">
+            -
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="info-label">
+          Controlli effettuati
+        </div>
+
+        <div
+          id="totalChecks"
+          class="info-value">
+          -
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="info-label">
+          Ultimo controllo
+        </div>
+
+        <div
+          id="lastChecked"
+          class="info-value">
+          -
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <div class="info-label">
+          Ultimo cambiamento
+        </div>
+
+        <div
+          id="lastChanged"
+          class="info-value">
+          Nessuno
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <button
+      id="refreshButton"
+      onclick="runManualCheck()">
+
+      Aggiorna ora
+
+    </button>
+
+
+    <div
+      id="message"
+      class="message">
+    </div>
+
+  </div>
+
+
+  <div class="card">
+
+    <h2>
+      Cronologia controlli
+    </h2>
+
+    <div id="history">
+      Caricamento...
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  /*
+   * ============================================================
+   * CONFIGURAZIONE
+   * ============================================================
+   *
+   * Modifica SOLO queste due righe.
+   *
+   * Esempio:
+   *
+   * GITHUB_OWNER = "mario-rossi"
+   * GITHUB_REPO  = "pagina-monitor"
+   *
+   */
+
+  const GITHUB_OWNER = "khemi00";
+
+  const GITHUB_REPO = "pagina-monitor";
+
+
+  /*
+   * Nome del workflow creato prima.
+   */
+
+  const WORKFLOW_FILE = "monitor.yml";
+
+  /*
+   * Branch principale.
+   */
+
+  const BRANCH = "main";
+
+
+  let currentState = null;
+
+
+  function formatDate(dateString) {
+
+    if (!dateString) {
+      return "Mai";
+    }
+
+    const date = new Date(dateString);
+
+    return new Intl.DateTimeFormat(
+      "it-IT",
+      {
+        dateStyle: "medium",
+        timeStyle: "short"
+      }
+    ).format(date);
+
+  }
+
+
+  async function loadState() {
+
+    try {
+
+      /*
+       * Date.now() impedisce al browser di usare una vecchia
+       * versione di state.json dalla cache.
+       */
+
+      const response = await fetch(
+        `state.json?t=${Date.now()}`
+      );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          "Impossibile caricare state.json"
+        );
+
+      }
+
+
+      const state = await response.json();
+
+      currentState = state;
+
+      renderState(state);
+
+    }
+
+    catch (error) {
+
+      console.error(error);
+
+      document.getElementById(
+        "statusTitle"
+      ).textContent =
+        "Errore nel caricamento";
+
+    }
+
+  }
+
+
+  function renderState(state) {
+
+    const statusDot =
+      document.getElementById("statusDot");
+
+    const statusTitle =
+      document.getElementById("statusTitle");
+
+
+    const history =
+      state.history || [];
+
+
+    const lastEntry =
+      history.length
+        ? history[history.length - 1]
+        : null;
+
+
+    /*
+     * STATO PRINCIPALE
+     */
+
+    statusDot.className =
+      "status-dot";
+
+
+    if (!lastEntry) {
+
+      statusTitle.textContent =
+        "Nessun controllo effettuato";
+
+      statusDot.classList.add(
+        "loading"
+      );
+
+    }
+
+    else if (lastEntry.status === "changed") {
+
+      statusTitle.textContent =
+        "Cambiamento rilevato";
+
+      statusDot.classList.add(
+        "changed"
+      );
+
+    }
+
+    else {
+
+      statusTitle.textContent =
+        "Nessun cambiamento rilevato";
+
+      statusDot.classList.add(
+        "ok"
+      );
+
+    }
+
+
+    /*
+     * URL
+     */
+
+    const pageUrl =
+      document.getElementById("pageUrl");
+
+    pageUrl.textContent =
+      state.url || "-";
+
+    pageUrl.href =
+      state.url || "#";
+
+
+    /*
+     * NUMERO CONTROLLI
+     */
+
+    document.getElementById(
+      "totalChecks"
+    ).textContent =
+      state.total_checks || 0;
+
+
+    /*
+     * ULTIMO CONTROLLO
+     */
+
+    document.getElementById(
+      "lastChecked"
+    ).textContent =
+      formatDate(
+        state.last_checked
+      );
+
+
+    /*
+     * ULTIMO CAMBIAMENTO
+     */
+
+    const lastChanged =
+      document.getElementById(
+        "lastChanged"
+      );
+
+
+    if (state.last_changed) {
+
+      const check =
+        state.last_changed_check
+          ? `Controllo #${state.last_changed_check} — `
+          : "";
+
+      lastChanged.textContent =
+        check +
+        formatDate(
+          state.last_changed
+        );
+
+    }
+
+    else {
+
+      lastChanged.textContent =
+        "Nessun cambiamento rilevato";
+
+    }
+
+
+    renderHistory(history);
+
+  }
+
+
+  function renderHistory(history) {
+
+    const container =
+      document.getElementById(
+        "history"
+      );
+
+
+    if (!history.length) {
+
+      container.innerHTML =
+        '<div class="empty">Nessun controllo disponibile.</div>';
+
+      return;
+
+    }
+
+
+    /*
+     * Mostra i più recenti in alto.
+     */
+
+    const reversed =
+      [...history].reverse();
+
+
+    container.innerHTML =
+      reversed.map(entry => {
+
+        let text;
+        let badgeClass;
+
+
+        if (entry.status === "baseline") {
+
+          text = "Baseline";
+          badgeClass = "baseline";
+
+        }
+
+        else if (entry.status === "changed") {
+
+          text = "Cambiamento";
+          badgeClass = "changed";
+
+        }
+
+        else {
+
+          text = "Nessun cambiamento";
+          badgeClass = "unchanged";
+
+        }
+
+
+        return `
+
+          <div class="history-item">
+
+            <div class="check-number">
+              Controllo #${entry.check}
+            </div>
+
+            <div class="history-time">
+              ${formatDate(entry.timestamp)}
+            </div>
+
+            <div
+              class="badge ${badgeClass}">
+              ${text}
+            </div>
+
+          </div>
+
+        `;
+
+      }).join("");
+
+  }
+
+
+  /*
+   * ============================================================
+   * CONTROLLO MANUALE
+   * ============================================================
+   */
+
+  async function runManualCheck() {
+
+    const button =
+      document.getElementById(
+        "refreshButton"
+      );
+
+    const message =
+      document.getElementById(
+        "message"
+      );
+
+
+    /*
+     * Cerchiamo un token già salvato sul dispositivo.
+     */
+
+    let token =
+      localStorage.getItem(
+        "github_monitor_token"
+      );
+
+
+    /*
+     * Se non c'è, lo chiediamo.
+     */
+
+    if (!token) {
+
+      token = prompt(
+        "Inserisci il tuo GitHub Personal Access Token.\n\n" +
+        "Verrà salvato soltanto su questo browser."
+      );
+
+
+      if (!token) {
+        return;
+      }
+
+
+      token = token.trim();
+
+
+      localStorage.setItem(
+        "github_monitor_token",
+        token
+      );
+
+    }
+
+
+    button.disabled = true;
+
+    button.textContent =
+      "Avvio controllo...";
+
+    message.textContent =
+      "Sto avviando il controllo su GitHub Actions.";
+
+
+    try {
+
+      const apiUrl =
+        `https://api.github.com/repos/` +
+        `${GITHUB_OWNER}/${GITHUB_REPO}` +
+        `/actions/workflows/${WORKFLOW_FILE}/dispatches`;
+
+
+      const response =
+        await fetch(
+          apiUrl,
+          {
+
+            method: "POST",
+
+            headers: {
+
+              "Accept":
+                "application/vnd.github+json",
+
+              "Authorization":
+                `Bearer ${token}`,
+
+              "X-GitHub-Api-Version":
+                "2022-11-28",
+
+              "Content-Type":
+                "application/json"
+
+            },
+
+            body: JSON.stringify({
+              ref: BRANCH
+            })
+
+          }
+        );
+
+
+      /*
+       * GitHub restituisce 204 quando il workflow
+       * viene avviato correttamente.
+       */
+
+      if (response.status === 204) {
+
+        message.textContent =
+          "Controllo avviato. Attendo il risultato...";
+
+        button.textContent =
+          "Controllo in corso...";
+
+
+        await waitForNewCheck();
+
+      }
+
+      else if (
+        response.status === 401 ||
+        response.status === 403
+      ) {
+
+        /*
+         * Probabilmente token errato o senza permessi.
+         */
+
+        localStorage.removeItem(
+          "github_monitor_token"
+        );
+
+
+        throw new Error(
+          "Token GitHub non valido oppure senza i permessi necessari."
+        );
+
+      }
+
+      else {
+
+        const text =
+          await response.text();
+
+        throw new Error(
+          `GitHub ha restituito errore ${response.status}. ${text}`
+        );
+
+      }
+
+    }
+
+    catch (error) {
+
+      console.error(error);
+
+      message.textContent =
+        error.message;
+
+    }
+
+    finally {
+
+      button.disabled = false;
+
+      button.textContent =
+        "Aggiorna ora";
+
+    }
+
+  }
+
+
+  /*
+   * Dopo aver avviato GitHub Actions controlliamo periodicamente
+   * state.json finché compare un nuovo numero di controllo.
+   */
+
+  async function waitForNewCheck() {
+
+    const oldCheck =
+      currentState
+        ? currentState.total_checks
+        : 0;
+
+
+    const message =
+      document.getElementById(
+        "message"
+      );
+
+
+    /*
+     * Circa 2 minuti massimo.
+     */
+
+    for (
+      let attempt = 0;
+      attempt < 24;
+      attempt++
+    ) {
+
+      await sleep(5000);
+
+
+      try {
+
+        const response =
+          await fetch(
+            `state.json?t=${Date.now()}`
+          );
+
+
+        if (!response.ok) {
+          continue;
+        }
+
+
+        const newState =
+          await response.json();
+
+
+        if (
+          newState.total_checks >
+          oldCheck
+        ) {
+
+          currentState =
+            newState;
+
+
+          renderState(
+            newState
+          );
+
+
+          const latest =
+            newState.history[
+              newState.history.length - 1
+            ];
+
+
+          if (
+            latest.status === "changed"
+          ) {
+
+            message.textContent =
+              `Controllo #${latest.check}: cambiamento rilevato.`;
+
+          }
+
+          else {
+
+            message.textContent =
+              `Controllo #${latest.check}: nessun cambiamento rilevato.`;
+
+          }
+
+
+          return;
+
+        }
+
+      }
+
+      catch (error) {
+
+        console.error(error);
+
+      }
+
+    }
+
+
+    /*
+     * Il workflow potrebbe semplicemente essere ancora in coda.
+     */
+
+    message.textContent =
+      "Il controllo è stato avviato, ma il risultato non è ancora disponibile. Ricarica la pagina tra poco.";
+
+  }
+
+
+  function sleep(ms) {
+
+    return new Promise(
+      resolve =>
+        setTimeout(
+          resolve,
+          ms
+        )
+    );
+
+  }
+
+
+  /*
+   * Carichiamo automaticamente lo stato
+   * quando viene aperta la pagina.
+   */
+
+  loadState();
+
+</script>
+
+</body>
+</html>
