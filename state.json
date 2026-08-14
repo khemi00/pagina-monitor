@@ -1,15 +1,15 @@
 {
-  "last_run": "2026-08-15T01:17:39+02:00",
+  "last_run": "2026-08-15T01:45:55+02:00",
   "sites": {
     "european-policy-centre": {
       "name": "European Policy Centre",
       "url": "https://www.epc.eu/",
       "current_hash": "390a67e08c23071cb370f075e0a46112793b9101018d5ab4c8ccae535b7b6fa5",
-      "last_checked": "2026-08-15T01:17:39+02:00",
+      "last_checked": "2026-08-15T01:45:55+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -34,6 +34,12 @@
           "timestamp": "2026-08-15T01:17:39+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:45:55+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -41,11 +47,11 @@
       "name": "Geneva Call",
       "url": "https://www.genevacall.org/careers/",
       "current_hash": "b0008a6a03059bb01df995e8562aca9289548344c114ff5bf3082d4f387ba2de",
-      "last_checked": "2026-08-15T01:17:40+02:00",
+      "last_checked": "2026-08-15T01:45:56+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -70,6 +76,12 @@
           "timestamp": "2026-08-15T01:17:40+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:45:56+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -77,11 +89,11 @@
       "name": "Bruegel",
       "url": "https://www.bruegel.org/careers",
       "current_hash": null,
-      "last_checked": "2026-08-15T01:17:41+02:00",
+      "last_checked": "2026-08-15T01:45:57+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": "HTTPError: HTTP Error 403: Forbidden",
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -110,6 +122,13 @@
           "changed": false,
           "status": "error",
           "error": "HTTPError: HTTP Error 403: Forbidden"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:45:57+02:00",
+          "changed": false,
+          "status": "error",
+          "error": "HTTPError: HTTP Error 403: Forbidden"
         }
       ]
     },
@@ -117,11 +136,11 @@
       "name": "The Good Lobby",
       "url": "https://thegoodlobby.eu/careers/",
       "current_hash": "0ecd5685f812afb7bd03055fc642ac6f814310821cec63fe5b423bc37a73ec5f",
-      "last_checked": "2026-08-15T01:17:41+02:00",
+      "last_checked": "2026-08-15T01:45:57+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -146,6 +165,12 @@
           "timestamp": "2026-08-15T01:17:41+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:45:57+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -153,11 +178,11 @@
       "name": "European Institute of Peace",
       "url": "https://vacancies.eip.org/jobs",
       "current_hash": "018f76d0313c6218db9fe209b890ff7f6555aed2ae7fd3df55351fbf1ce3676a",
-      "last_checked": "2026-08-15T01:17:43+02:00",
+      "last_checked": "2026-08-15T01:45:59+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -182,6 +207,12 @@
           "timestamp": "2026-08-15T01:17:43+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:45:59+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -189,11 +220,11 @@
       "name": "CEPS",
       "url": "https://www.ceps.eu/about-ceps/career-opportunities/",
       "current_hash": "5096dd4d3aec17956f737d422ab19cb633697088146acd72436e8e57610aecdd",
-      "last_checked": "2026-08-15T01:17:45+02:00",
+      "last_checked": "2026-08-15T01:46:01+02:00",
       "last_changed": null,
       "last_changed_check": null,
-      "last_error": null,
-      "total_checks": 4,
+      "last_error": "HTTPError: HTTP Error 403: Forbidden",
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -218,6 +249,13 @@
           "timestamp": "2026-08-15T01:17:45+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:01+02:00",
+          "changed": false,
+          "status": "error",
+          "error": "HTTPError: HTTP Error 403: Forbidden"
         }
       ]
     },
@@ -225,11 +263,11 @@
       "name": "Global Governance Institute",
       "url": "https://www.globalgovernance.eu/",
       "current_hash": "9aea202337885c9e8829423e4ba07d23fb2e9bb09953f78d5a59aab000a0be0b",
-      "last_checked": "2026-08-15T01:17:46+02:00",
+      "last_checked": "2026-08-15T01:46:02+02:00",
       "last_changed": "2026-08-15T00:48:16+02:00",
       "last_changed_check": 3,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -254,6 +292,12 @@
           "timestamp": "2026-08-15T01:17:46+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:02+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -261,11 +305,11 @@
       "name": "Brussels Institute for Geopolitics",
       "url": "https://big-europe.eu/home",
       "current_hash": "d5e5e40445b3625d650814f3d1dbd9f94bdf9b27948f87713f0f45252c19fba8",
-      "last_checked": "2026-08-15T01:17:48+02:00",
+      "last_checked": "2026-08-15T01:46:02+02:00",
       "last_changed": "2026-08-15T01:17:48+02:00",
       "last_changed_check": 4,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -290,6 +334,12 @@
           "timestamp": "2026-08-15T01:17:48+02:00",
           "changed": true,
           "status": "changed"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:02+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -297,11 +347,11 @@
       "name": "Friends of Europe",
       "url": "https://friendsofeurope-1721722951.teamtailor.com/",
       "current_hash": "80d04a6bfc689ec4f101474b39a47426bc5f426ee124f050aa0f0c54ee41d972",
-      "last_checked": "2026-08-15T01:17:50+02:00",
+      "last_checked": "2026-08-15T01:46:05+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -326,6 +376,12 @@
           "timestamp": "2026-08-15T01:17:50+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:05+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -333,11 +389,11 @@
       "name": "Foundation for European Progressive Studies",
       "url": "https://feps-europe.eu/careers/",
       "current_hash": "aaa08d0fc07cc0002975b3ca959225680fd60f5e331608ce8c45e4577fabb707",
-      "last_checked": "2026-08-15T01:17:51+02:00",
+      "last_checked": "2026-08-15T01:46:05+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -362,6 +418,12 @@
           "timestamp": "2026-08-15T01:17:51+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:05+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -369,11 +431,11 @@
       "name": "Carnegie Europe",
       "url": "https://carnegieendowment.org/europe/employment-opportunities-at-carnegie-europe",
       "current_hash": "8b892a3e5b2ce804254857f91582f6a5de47f5d754c4265f293c9b1650f84e67",
-      "last_checked": "2026-08-15T01:17:52+02:00",
+      "last_checked": "2026-08-15T01:46:07+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -398,6 +460,12 @@
           "timestamp": "2026-08-15T01:17:52+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:07+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -405,11 +473,11 @@
       "name": "SOLIDAR",
       "url": "https://www.solidar.org/work-with-us/",
       "current_hash": "ab4e6edb744f3adbc84fa9ac9809297b0638768c5f4ba4b74279e53c1c4071bd",
-      "last_checked": "2026-08-15T01:17:53+02:00",
+      "last_checked": "2026-08-15T01:46:08+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -434,6 +502,12 @@
           "timestamp": "2026-08-15T01:17:53+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:08+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -441,11 +515,11 @@
       "name": "Political Intelligence",
       "url": "https://political-intelligence.com/jobs/",
       "current_hash": "c1bdff6fb157683520216edfaccbbfde5965756fe75521da5327d898b047b991",
-      "last_checked": "2026-08-15T01:17:53+02:00",
+      "last_checked": "2026-08-15T01:46:08+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -468,6 +542,12 @@
         {
           "check": 4,
           "timestamp": "2026-08-15T01:17:53+02:00",
+          "changed": false,
+          "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:08+02:00",
           "changed": false,
           "status": "unchanged"
         }
@@ -477,11 +557,11 @@
       "name": "Rasmussen Global",
       "url": "https://rasmussenglobal.com/careers/",
       "current_hash": "08abcc4bb7e5767e8855b77ceed235b03a3a125bff38df9a40bc9f857c764529",
-      "last_checked": "2026-08-15T01:17:53+02:00",
+      "last_checked": "2026-08-15T01:46:09+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -506,6 +586,12 @@
           "timestamp": "2026-08-15T01:17:53+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:09+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -513,11 +599,11 @@
       "name": "European Endowment for Democracy",
       "url": "https://democracyendowment.eu/work-for-us",
       "current_hash": "57eb62d259229551da189cdb51b07873fe12834dd8601b79fa97d373142dada7",
-      "last_checked": "2026-08-15T01:17:54+02:00",
+      "last_checked": "2026-08-15T01:46:09+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -542,6 +628,12 @@
           "timestamp": "2026-08-15T01:17:54+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:09+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -549,11 +641,11 @@
       "name": "Institut Montaigne",
       "url": "https://www.institutmontaigne.org/en/careers",
       "current_hash": "53cae8a43397b27ce07de16629c0c27cbc2c7296dd031180147ac4264a09d391",
-      "last_checked": "2026-08-15T01:17:54+02:00",
+      "last_checked": "2026-08-15T01:46:10+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -578,6 +670,12 @@
           "timestamp": "2026-08-15T01:17:54+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:10+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -585,11 +683,11 @@
       "name": "TEPSA",
       "url": "https://www.linkedin.com/company/tepsabrussels/posts/?feedView=all",
       "current_hash": "c58a60a84ce83f72354a961b73c4a84a6d7b5c8f5d95f4d10a5e35a224e39964",
-      "last_checked": "2026-08-15T01:17:55+02:00",
+      "last_checked": "2026-08-15T01:46:11+02:00",
       "last_changed": "2026-08-15T00:48:26+02:00",
       "last_changed_check": 3,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -614,6 +712,12 @@
           "timestamp": "2026-08-15T01:17:55+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:11+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -621,11 +725,11 @@
       "name": "Wilfried Martens Centre for European Studies",
       "url": "https://www.martenscentre.eu/join-team/",
       "current_hash": "e68b6f29903999aa1f60322d187fcf416c33e664bfe7b96354ea3e3956b432be",
-      "last_checked": "2026-08-15T01:17:55+02:00",
+      "last_checked": "2026-08-15T01:46:12+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -650,6 +754,12 @@
           "timestamp": "2026-08-15T01:17:55+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:12+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -657,11 +767,11 @@
       "name": "Equinet",
       "url": "https://equineteurope.org/vacancies/",
       "current_hash": null,
-      "last_checked": "2026-08-15T01:17:57+02:00",
+      "last_checked": "2026-08-15T01:46:13+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": "HTTPError: HTTP Error 403: Forbidden",
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -690,18 +800,25 @@
           "changed": false,
           "status": "error",
           "error": "HTTPError: HTTP Error 403: Forbidden"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:13+02:00",
+          "changed": false,
+          "status": "error",
+          "error": "HTTPError: HTTP Error 403: Forbidden"
         }
       ]
     },
     "eacon": {
       "name": "EACON - European Affairs Consulting Group",
       "url": "https://www.eacongroup.com/careers/wupba_trainee/",
-      "current_hash": "9e6c0669a55c3cfdb09a4ab7eb873b9cf35454d8fd3438d823387f2d887e1e75",
-      "last_checked": "2026-08-15T01:17:57+02:00",
-      "last_changed": null,
-      "last_changed_check": null,
+      "current_hash": "99ebfa6e3aa3a32c5268e95246d99308b50b7d5f5472ff2126b3593975de7d8b",
+      "last_checked": "2026-08-15T01:46:14+02:00",
+      "last_changed": "2026-08-15T01:46:14+02:00",
+      "last_changed_check": 5,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -726,6 +843,12 @@
           "timestamp": "2026-08-15T01:17:57+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:14+02:00",
+          "changed": true,
+          "status": "changed"
         }
       ]
     },
@@ -733,11 +856,11 @@
       "name": "DCAF",
       "url": "https://www.dcaf.ch/vacancies",
       "current_hash": "c530fe390685243671f69a0f4875d2dfbf8dfd627a312ed8f1bf3a3277e2187b",
-      "last_checked": "2026-08-15T01:17:58+02:00",
+      "last_checked": "2026-08-15T01:46:14+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -762,6 +885,12 @@
           "timestamp": "2026-08-15T01:17:58+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:14+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -769,11 +898,11 @@
       "name": "European Women's Lobby",
       "url": "https://womenlobby.org/contact/jobs/",
       "current_hash": "f36e1774a65164fa3d25dbb500dd21d2b6f6f9b09e050db8590c20252bfc82da",
-      "last_checked": "2026-08-15T01:17:59+02:00",
+      "last_checked": "2026-08-15T01:46:16+02:00",
       "last_changed": "2026-08-15T00:18:52+02:00",
       "last_changed_check": 2,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -798,6 +927,12 @@
           "timestamp": "2026-08-15T01:17:59+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:16+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -805,11 +940,11 @@
       "name": "UN Office / UNDP Office Brussels",
       "url": "https://unric.org/en/brussels-vacancies/",
       "current_hash": "3af8dcddeb9a4b8734e99d4340b4489a8df7d91ef0bfb939adde1273701209f7",
-      "last_checked": "2026-08-15T01:18:02+02:00",
+      "last_checked": "2026-08-15T01:46:19+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -832,6 +967,12 @@
         {
           "check": 4,
           "timestamp": "2026-08-15T01:18:02+02:00",
+          "changed": false,
+          "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:19+02:00",
           "changed": false,
           "status": "unchanged"
         }
@@ -841,11 +982,11 @@
       "name": "Heinrich Böll Stiftung",
       "url": "https://eu.boell.org/en/categories/vacancies",
       "current_hash": "b8f865c9114f5514cf74dd27a78ca5517435c51eff6a66d4a22b48001ac15e6a",
-      "last_checked": "2026-08-15T01:18:02+02:00",
+      "last_checked": "2026-08-15T01:46:19+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -870,6 +1011,12 @@
           "timestamp": "2026-08-15T01:18:02+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:19+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -877,11 +1024,11 @@
       "name": "EAPN - European Anti-Poverty Network",
       "url": "https://www.eapn.eu/",
       "current_hash": "c6f34a2e38a76ccfc56243cf42e2c84ededb1bcb61a9e18d4a4e045df4bd378c",
-      "last_checked": "2026-08-15T01:18:03+02:00",
+      "last_checked": "2026-08-15T01:46:20+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -906,6 +1053,12 @@
           "timestamp": "2026-08-15T01:18:03+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:20+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -913,11 +1066,11 @@
       "name": "Euralia",
       "url": "https://www.euralia.eu/actualites/",
       "current_hash": "c0658c795590566308070587e2c3481483e491d6fa5a008fce3a65c903dfab56",
-      "last_checked": "2026-08-15T01:18:04+02:00",
+      "last_checked": "2026-08-15T01:46:22+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -942,6 +1095,12 @@
           "timestamp": "2026-08-15T01:18:04+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:22+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -949,11 +1108,11 @@
       "name": "GIZ Brussels",
       "url": "https://www.giz.de/en/career/jobs/trainee-programmes",
       "current_hash": "b5d2bce602c820bed86eb95438d94708ce61fad3bb96c0d9f4e5c2125f8539a6",
-      "last_checked": "2026-08-15T01:18:14+02:00",
+      "last_checked": "2026-08-15T01:46:24+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -978,6 +1137,12 @@
           "timestamp": "2026-08-15T01:18:14+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:24+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -985,11 +1150,11 @@
       "name": "Egmont Institute",
       "url": "https://egmontinstitute.be/jobs-internships-and-opportunities/",
       "current_hash": "fe27fd664ea87d963d897583134e6435eece7f88bc8beca14c6019c0dd15d627",
-      "last_checked": "2026-08-15T01:18:15+02:00",
+      "last_checked": "2026-08-15T01:46:25+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1014,6 +1179,12 @@
           "timestamp": "2026-08-15T01:18:15+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:25+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -1021,11 +1192,11 @@
       "name": "ECDPM",
       "url": "https://ecdpm.org/about/careers",
       "current_hash": null,
-      "last_checked": "2026-08-15T01:18:16+02:00",
+      "last_checked": "2026-08-15T01:46:26+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": "HTTPError: HTTP Error 403: Forbidden",
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1054,6 +1225,13 @@
           "changed": false,
           "status": "error",
           "error": "HTTPError: HTTP Error 403: Forbidden"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:26+02:00",
+          "changed": false,
+          "status": "error",
+          "error": "HTTPError: HTTP Error 403: Forbidden"
         }
       ]
     },
@@ -1061,11 +1239,11 @@
       "name": "EIAS",
       "url": "https://eias.org/vacancies/",
       "current_hash": "c80e29d44e7d6cdbddae7977854d8810f2ac5a7cd7743c6d67226d4e212eb42e",
-      "last_checked": "2026-08-15T01:18:16+02:00",
+      "last_checked": "2026-08-15T01:46:26+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1090,6 +1268,12 @@
           "timestamp": "2026-08-15T01:18:16+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:26+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -1097,11 +1281,11 @@
       "name": "EUISS",
       "url": "https://www.iss.europa.eu/opportunities",
       "current_hash": "7ff875071ac08b661017bd973a168e78478868ed2e41244e4301bc864e2f2997",
-      "last_checked": "2026-08-15T01:18:17+02:00",
+      "last_checked": "2026-08-15T01:46:28+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1126,6 +1310,12 @@
           "timestamp": "2026-08-15T01:18:17+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:28+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -1133,11 +1323,11 @@
       "name": "ODI",
       "url": "https://careers.odi.org/",
       "current_hash": "ff0333542a255a61bc7a79b32cd6d1c8b71d9808790f0cd37588dd8677035f5a",
-      "last_checked": "2026-08-15T01:18:17+02:00",
+      "last_checked": "2026-08-15T01:46:29+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1162,6 +1352,12 @@
           "timestamp": "2026-08-15T01:18:17+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:29+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -1169,11 +1365,11 @@
       "name": "RAND Europe",
       "url": "https://www.rand.org/randeurope/employment.html",
       "current_hash": "bb621537ec8442bb673053ee87d5c6ae6fd66d928c24a2ddc637a176d1e6dc98",
-      "last_checked": "2026-08-15T01:18:18+02:00",
+      "last_checked": "2026-08-15T01:46:30+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1198,6 +1394,12 @@
           "timestamp": "2026-08-15T01:18:18+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:30+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -1205,11 +1407,11 @@
       "name": "Bertelsmann Stiftung",
       "url": "https://www.bertelsmann-stiftung.de/en/careers",
       "current_hash": "b317ab2490b5e696d630acd6720560349fc3aea5cf00a8cefe4793259343825c",
-      "last_checked": "2026-08-15T01:18:18+02:00",
+      "last_checked": "2026-08-15T01:46:30+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1234,6 +1436,12 @@
           "timestamp": "2026-08-15T01:18:18+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:30+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -1241,11 +1449,11 @@
       "name": "Konrad Adenauer Stiftung Brussels Office",
       "url": "https://www.kas.de/en/static-content-details/-/content/stellenausschreibungen-des-europabueros-bruessel",
       "current_hash": "e844b4c526152de47fbc6b980357b5074eff1d64f9b601d1dfab877b755a7ad4",
-      "last_checked": "2026-08-15T01:18:20+02:00",
+      "last_checked": "2026-08-15T01:46:32+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1270,6 +1478,12 @@
           "timestamp": "2026-08-15T01:18:20+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:32+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -1277,11 +1491,11 @@
       "name": "Centre for Security, Diplomacy and Strategy - Brussels School of Governance",
       "url": "https://csds.vub.be/vacancies/",
       "current_hash": "bca2466b753c11afa007425e5c168bf8c2166a0de7d8c4a5a1e81a92f41e34e1",
-      "last_checked": "2026-08-15T01:18:25+02:00",
+      "last_checked": "2026-08-15T01:46:33+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1306,6 +1520,12 @@
           "timestamp": "2026-08-15T01:18:25+02:00",
           "changed": false,
           "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:33+02:00",
+          "changed": false,
+          "status": "unchanged"
         }
       ]
     },
@@ -1313,11 +1533,11 @@
       "name": "International IDEA",
       "url": "https://careers.idea.int/",
       "current_hash": "9715b89792f84bc54feeef6967f7cfb770117b34cece6d4065c7e9867700dba7",
-      "last_checked": "2026-08-15T01:18:26+02:00",
+      "last_checked": "2026-08-15T01:46:35+02:00",
       "last_changed": null,
       "last_changed_check": null,
       "last_error": null,
-      "total_checks": 4,
+      "total_checks": 5,
       "history": [
         {
           "check": 1,
@@ -1340,6 +1560,12 @@
         {
           "check": 4,
           "timestamp": "2026-08-15T01:18:26+02:00",
+          "changed": false,
+          "status": "unchanged"
+        },
+        {
+          "check": 5,
+          "timestamp": "2026-08-15T01:46:35+02:00",
           "changed": false,
           "status": "unchanged"
         }
