@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Page Monitor</title>
+  <title>Job Pages Monitor</title>
 
   <style>
     * {
@@ -21,194 +21,265 @@
         Helvetica,
         Arial,
         sans-serif;
-
-      background: #f4f5f7;
+      background: #f5f6f8;
       color: #202124;
     }
 
     .container {
-      max-width: 850px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 32px 18px 60px;
     }
 
     h1 {
-      margin-bottom: 5px;
+      margin: 0 0 6px;
+      font-size: 30px;
     }
 
     .subtitle {
       color: #666;
-      margin-top: 0;
-      margin-bottom: 30px;
+      margin: 0 0 25px;
     }
 
-    .card {
-      background: white;
-      border-radius: 14px;
-      padding: 24px;
-      margin-bottom: 20px;
-
-      box-shadow:
-        0 1px 3px rgba(0, 0, 0, 0.08);
-    }
-
-    .status {
-      display: flex;
-      align-items: center;
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       margin-bottom: 20px;
     }
 
-    .status-dot {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: #aaa;
+    .summary-card {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
     }
 
-    .status-dot.ok {
-      background: #2e7d32;
+    .summary-number {
+      font-size: 25px;
+      font-weight: 700;
+      margin-bottom: 4px;
     }
 
-    .status-dot.changed {
-      background: #d32f2f;
-    }
-
-    .status-dot.loading {
-      background: #f9a825;
-    }
-
-    .status-title {
-      font-size: 20px;
-      font-weight: 600;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .info-label {
+    .summary-label {
       font-size: 13px;
-      text-transform: uppercase;
       color: #777;
-      margin-bottom: 5px;
     }
 
-    .info-value {
-      font-size: 16px;
-      word-break: break-word;
+    .toolbar {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
+    }
+
+    .toolbar-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    input,
+    select {
+      padding: 11px;
+      border: 1px solid #ddd;
+      border-radius: 9px;
+      font-size: 14px;
+      background: white;
+    }
+
+    input {
+      flex: 1;
+      min-width: 180px;
+    }
+
+    select {
+      min-width: 170px;
     }
 
     button {
-      width: 100%;
-      margin-top: 20px;
-      padding: 14px;
-
       border: none;
-      border-radius: 10px;
-
+      border-radius: 9px;
+      padding: 11px 16px;
       background: #111;
       color: white;
-
-      font-size: 16px;
-      font-weight: 600;
-
       cursor: pointer;
-    }
-
-    button:hover {
-      background: #333;
+      font-weight: 600;
     }
 
     button:disabled {
-      background: #999;
-      cursor: not-allowed;
+      opacity: .6;
+      cursor: wait;
     }
 
-    .message {
-      margin-top: 15px;
-      font-size: 14px;
-      color: #555;
-      text-align: center;
-    }
-
-    .history-item {
-      display: grid;
-      grid-template-columns: 110px 1fr auto;
-      gap: 15px;
-
-      padding: 15px 0;
-
-      border-bottom: 1px solid #eee;
-
-      align-items: center;
-    }
-
-    .history-item:last-child {
-      border-bottom: none;
-    }
-
-    .check-number {
-      font-weight: 600;
-    }
-
-    .history-time {
+    .refresh-message {
+      margin-top: 10px;
       color: #666;
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    .badge {
-      font-size: 12px;
-      font-weight: 600;
-
-      padding: 5px 9px;
-
-      border-radius: 20px;
-
-      white-space: nowrap;
+    .site-list {
+      display: grid;
+      gap: 13px;
     }
 
-    .badge.baseline {
-      background: #eeeeee;
-      color: #555;
+    .site-card {
+      background: white;
+      border-radius: 13px;
+      padding: 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
     }
 
-    .badge.unchanged {
-      background: #e8f5e9;
-      color: #2e7d32;
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 15px;
     }
 
-    .badge.changed {
-      background: #ffebee;
-      color: #c62828;
+    .site-name {
+      margin: 0 0 5px;
+      font-size: 18px;
     }
 
-    .page-link {
+    .site-url {
+      color: #777;
+      font-size: 13px;
+      word-break: break-all;
+    }
+
+    .site-url a {
       color: inherit;
     }
 
-    .empty {
-      color: #777;
-      text-align: center;
-      padding: 25px 0;
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      border-radius: 20px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
     }
 
-    @media (max-width: 600px) {
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
 
-      .container {
-        padding: 25px 15px;
+    .status-ok {
+      color: #267536;
+      background: #eaf6ec;
+    }
+
+    .status-changed {
+      color: #b42318;
+      background: #fff0ee;
+    }
+
+    .status-error {
+      color: #9a6700;
+      background: #fff7df;
+    }
+
+    .status-baseline {
+      color: #555;
+      background: #eee;
+    }
+
+    .site-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .info-label {
+      color: #888;
+      font-size: 11px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .info-value {
+      font-size: 14px;
+    }
+
+    .details-button {
+      background: transparent;
+      color: #333;
+      padding: 7px 0;
+      margin-top: 13px;
+      font-size: 13px;
+    }
+
+    .history {
+      display: none;
+      margin-top: 10px;
+      border-top: 1px solid #eee;
+      padding-top: 5px;
+    }
+
+    .history.open {
+      display: block;
+    }
+
+    .history-row {
+      display: grid;
+      grid-template-columns: 110px 180px 1fr;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid #f1f1f1;
+      font-size: 13px;
+    }
+
+    .history-changed {
+      color: #b42318;
+      font-weight: 600;
+    }
+
+    .history-error {
+      color: #9a6700;
+    }
+
+    .last-run {
+      margin: 12px 0 22px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 35px;
+      color: #777;
+    }
+
+    @media (max-width: 700px) {
+      .summary {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .info-grid {
+      .site-header {
+        display: block;
+      }
+
+      .status {
+        margin-top: 10px;
+      }
+
+      .site-info {
         grid-template-columns: 1fr;
       }
 
-      .history-item {
+      .history-row {
         grid-template-columns: 1fr;
+        gap: 3px;
       }
-
     }
   </style>
 </head>
@@ -217,128 +288,79 @@
 
 <div class="container">
 
-  <h1>Page Monitor</h1>
+  <h1>Job Pages Monitor</h1>
 
   <p class="subtitle">
-    Controllo automatico delle modifiche della pagina
+    Monitoraggio automatico delle pagine di lavoro e vacancies
   </p>
 
+  <div class="summary">
 
-  <div class="card">
-
-    <div class="status">
-
-      <div
-        id="statusDot"
-        class="status-dot loading">
-      </div>
-
-      <div
-        id="statusTitle"
-        class="status-title">
-        Caricamento...
-      </div>
-
+    <div class="summary-card">
+      <div id="totalSites" class="summary-number">-</div>
+      <div class="summary-label">Siti monitorati</div>
     </div>
 
-
-    <div class="info-grid">
-
-      <div>
-
-        <div class="info-label">
-          Pagina monitorata
-        </div>
-
-        <div class="info-value">
-
-          <a
-            id="pageUrl"
-            class="page-link"
-            href="#"
-            target="_blank">
-            -
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div>
-
-        <div class="info-label">
-          Controlli effettuati
-        </div>
-
-        <div
-          id="totalChecks"
-          class="info-value">
-          -
-        </div>
-
-      </div>
-
-
-      <div>
-
-        <div class="info-label">
-          Ultimo controllo
-        </div>
-
-        <div
-          id="lastChecked"
-          class="info-value">
-          -
-        </div>
-
-      </div>
-
-
-      <div>
-
-        <div class="info-label">
-          Ultimo cambiamento
-        </div>
-
-        <div
-          id="lastChanged"
-          class="info-value">
-          Nessuno
-        </div>
-
-      </div>
-
+    <div class="summary-card">
+      <div id="okSites" class="summary-number">-</div>
+      <div class="summary-label">Senza cambiamenti</div>
     </div>
 
+    <div class="summary-card">
+      <div id="changedSites" class="summary-number">-</div>
+      <div class="summary-label">Con cambiamenti</div>
+    </div>
 
-    <button
-      id="refreshButton"
-      onclick="runManualCheck()">
-
-      Aggiorna ora
-
-    </button>
-
-
-    <div
-      id="message"
-      class="message">
+    <div class="summary-card">
+      <div id="errorSites" class="summary-number">-</div>
+      <div class="summary-label">Con errori</div>
     </div>
 
   </div>
 
+  <div id="lastRun" class="last-run">
+    Ultimo controllo: -
+  </div>
 
-  <div class="card">
+  <div class="toolbar">
 
-    <h2>
-      Cronologia controlli
-    </h2>
+    <div class="toolbar-row">
 
-    <div id="history">
-      Caricamento...
+      <input
+        id="search"
+        type="search"
+        placeholder="Cerca organizzazione..."
+        oninput="renderSites()"
+      >
+
+      <select
+        id="filter"
+        onchange="renderSites()"
+      >
+        <option value="all">Tutti i siti</option>
+        <option value="changed">Cambiamenti rilevati</option>
+        <option value="unchanged">Nessun cambiamento</option>
+        <option value="error">Errori</option>
+      </select>
+
+      <button
+        id="refreshPage"
+        onclick="loadState()"
+      >
+        Ricarica dati
+      </button>
+
     </div>
 
+    <div
+      id="refreshMessage"
+      class="refresh-message">
+    </div>
+
+  </div>
+
+  <div id="sites" class="site-list">
+    Caricamento...
   </div>
 
 </div>
@@ -346,474 +368,134 @@
 
 <script>
 
-  /*
-   * ============================================================
-   * CONFIGURAZIONE
-   * ============================================================
-   *
-   * Modifica SOLO queste due righe.
-   *
-   * Esempio:
-   *
-   * GITHUB_OWNER = "mario-rossi"
-   * GITHUB_REPO  = "pagina-monitor"
-   *
-   */
-
-  const GITHUB_OWNER = "khemi00";
-
-  const GITHUB_REPO = "pagina-monitor";
+  let stateData = null;
 
 
-  /*
-   * Nome del workflow creato prima.
-   */
+  function formatDate(value) {
 
-  const WORKFLOW_FILE = "monitor.yml";
-
-  /*
-   * Branch principale.
-   */
-
-  const BRANCH = "main";
-
-
-  let currentState = null;
-
-
-  function formatDate(dateString) {
-
-    if (!dateString) {
+    if (!value) {
       return "Mai";
     }
 
-    const date = new Date(dateString);
+    const date = new Date(value);
 
     return new Intl.DateTimeFormat(
       "it-IT",
       {
-        dateStyle: "medium",
-        timeStyle: "short"
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
       }
     ).format(date);
 
   }
 
 
+  function getLatestEntry(site) {
+
+    if (
+      !site.history ||
+      site.history.length === 0
+    ) {
+      return null;
+    }
+
+    return site.history[
+      site.history.length - 1
+    ];
+
+  }
+
+
+  function getStatus(site) {
+
+    const latest = getLatestEntry(site);
+
+    if (!latest) {
+      return "baseline";
+    }
+
+    return latest.status;
+
+  }
+
+
+  function getStatusText(status) {
+
+    switch (status) {
+
+      case "changed":
+        return "Cambiamento rilevato";
+
+      case "error":
+        return "Errore";
+
+      case "baseline":
+        return "Baseline";
+
+      default:
+        return "Nessun cambiamento";
+    }
+
+  }
+
+
+  function getStatusClass(status) {
+
+    switch (status) {
+
+      case "changed":
+        return "status-changed";
+
+      case "error":
+        return "status-error";
+
+      case "baseline":
+        return "status-baseline";
+
+      default:
+        return "status-ok";
+    }
+
+  }
+
+
   async function loadState() {
 
-    try {
-
-      /*
-       * Date.now() impedisce al browser di usare una vecchia
-       * versione di state.json dalla cache.
-       */
-
-      const response = await fetch(
-        `state.json?t=${Date.now()}`
-      );
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          "Impossibile caricare state.json"
-        );
-
-      }
-
-
-      const state = await response.json();
-
-      currentState = state;
-
-      renderState(state);
-
-    }
-
-    catch (error) {
-
-      console.error(error);
-
-      document.getElementById(
-        "statusTitle"
-      ).textContent =
-        "Errore nel caricamento";
-
-    }
-
-  }
-
-
-  function renderState(state) {
-
-    const statusDot =
-      document.getElementById("statusDot");
-
-    const statusTitle =
-      document.getElementById("statusTitle");
-
-
-    const history =
-      state.history || [];
-
-
-    const lastEntry =
-      history.length
-        ? history[history.length - 1]
-        : null;
-
-
-    /*
-     * STATO PRINCIPALE
-     */
-
-    statusDot.className =
-      "status-dot";
-
-
-    if (!lastEntry) {
-
-      statusTitle.textContent =
-        "Nessun controllo effettuato";
-
-      statusDot.classList.add(
-        "loading"
-      );
-
-    }
-
-    else if (lastEntry.status === "changed") {
-
-      statusTitle.textContent =
-        "Cambiamento rilevato";
-
-      statusDot.classList.add(
-        "changed"
-      );
-
-    }
-
-    else {
-
-      statusTitle.textContent =
-        "Nessun cambiamento rilevato";
-
-      statusDot.classList.add(
-        "ok"
-      );
-
-    }
-
-
-    /*
-     * URL
-     */
-
-    const pageUrl =
-      document.getElementById("pageUrl");
-
-    pageUrl.textContent =
-      state.url || "-";
-
-    pageUrl.href =
-      state.url || "#";
-
-
-    /*
-     * NUMERO CONTROLLI
-     */
-
-    document.getElementById(
-      "totalChecks"
-    ).textContent =
-      state.total_checks || 0;
-
-
-    /*
-     * ULTIMO CONTROLLO
-     */
-
-    document.getElementById(
-      "lastChecked"
-    ).textContent =
-      formatDate(
-        state.last_checked
-      );
-
-
-    /*
-     * ULTIMO CAMBIAMENTO
-     */
-
-    const lastChanged =
-      document.getElementById(
-        "lastChanged"
-      );
-
-
-    if (state.last_changed) {
-
-      const check =
-        state.last_changed_check
-          ? `Controllo #${state.last_changed_check} — `
-          : "";
-
-      lastChanged.textContent =
-        check +
-        formatDate(
-          state.last_changed
-        );
-
-    }
-
-    else {
-
-      lastChanged.textContent =
-        "Nessun cambiamento rilevato";
-
-    }
-
-
-    renderHistory(history);
-
-  }
-
-
-  function renderHistory(history) {
-
-    const container =
-      document.getElementById(
-        "history"
-      );
-
-
-    if (!history.length) {
-
-      container.innerHTML =
-        '<div class="empty">Nessun controllo disponibile.</div>';
-
-      return;
-
-    }
-
-
-    /*
-     * Mostra i più recenti in alto.
-     */
-
-    const reversed =
-      [...history].reverse();
-
-
-    container.innerHTML =
-      reversed.map(entry => {
-
-        let text;
-        let badgeClass;
-
-
-        if (entry.status === "baseline") {
-
-          text = "Baseline";
-          badgeClass = "baseline";
-
-        }
-
-        else if (entry.status === "changed") {
-
-          text = "Cambiamento";
-          badgeClass = "changed";
-
-        }
-
-        else {
-
-          text = "Nessun cambiamento";
-          badgeClass = "unchanged";
-
-        }
-
-
-        return `
-
-          <div class="history-item">
-
-            <div class="check-number">
-              Controllo #${entry.check}
-            </div>
-
-            <div class="history-time">
-              ${formatDate(entry.timestamp)}
-            </div>
-
-            <div
-              class="badge ${badgeClass}">
-              ${text}
-            </div>
-
-          </div>
-
-        `;
-
-      }).join("");
-
-  }
-
-
-  /*
-   * ============================================================
-   * CONTROLLO MANUALE
-   * ============================================================
-   */
-
-  async function runManualCheck() {
-
     const button =
-      document.getElementById(
-        "refreshButton"
-      );
+      document.getElementById("refreshPage");
 
     const message =
-      document.getElementById(
-        "message"
-      );
-
-
-    /*
-     * Cerchiamo un token già salvato sul dispositivo.
-     */
-
-    let token =
-      localStorage.getItem(
-        "github_monitor_token"
-      );
-
-
-    /*
-     * Se non c'è, lo chiediamo.
-     */
-
-    if (!token) {
-
-      token = prompt(
-        "Inserisci il tuo GitHub Personal Access Token.\n\n" +
-        "Verrà salvato soltanto su questo browser."
-      );
-
-
-      if (!token) {
-        return;
-      }
-
-
-      token = token.trim();
-
-
-      localStorage.setItem(
-        "github_monitor_token",
-        token
-      );
-
-    }
-
+      document.getElementById("refreshMessage");
 
     button.disabled = true;
-
-    button.textContent =
-      "Avvio controllo...";
-
-    message.textContent =
-      "Sto avviando il controllo su GitHub Actions.";
-
+    button.textContent = "Caricamento...";
 
     try {
 
-      const apiUrl =
-        `https://api.github.com/repos/` +
-        `${GITHUB_OWNER}/${GITHUB_REPO}` +
-        `/actions/workflows/${WORKFLOW_FILE}/dispatches`;
+      const response = await fetch(
+        `state.json?t=${Date.now()}`,
+        {
+          cache: "no-store"
+        }
+      );
 
-
-      const response =
-        await fetch(
-          apiUrl,
-          {
-
-            method: "POST",
-
-            headers: {
-
-              "Accept":
-                "application/vnd.github+json",
-
-              "Authorization":
-                `Bearer ${token}`,
-
-              "X-GitHub-Api-Version":
-                "2022-11-28",
-
-              "Content-Type":
-                "application/json"
-
-            },
-
-            body: JSON.stringify({
-              ref: BRANCH
-            })
-
-          }
-        );
-
-
-      /*
-       * GitHub restituisce 204 quando il workflow
-       * viene avviato correttamente.
-       */
-
-      if (response.status === 204) {
-
-        message.textContent =
-          "Controllo avviato. Attendo il risultato...";
-
-        button.textContent =
-          "Controllo in corso...";
-
-
-        await waitForNewCheck();
-
-      }
-
-      else if (
-        response.status === 401 ||
-        response.status === 403
-      ) {
-
-        /*
-         * Probabilmente token errato o senza permessi.
-         */
-
-        localStorage.removeItem(
-          "github_monitor_token"
-        );
-
-
+      if (!response.ok) {
         throw new Error(
-          "Token GitHub non valido oppure senza i permessi necessari."
+          `Errore HTTP ${response.status}`
         );
-
       }
 
-      else {
+      stateData = await response.json();
 
-        const text =
-          await response.text();
+      renderSummary();
+      renderSites();
 
-        throw new Error(
-          `GitHub ha restituito errore ${response.status}. ${text}`
-        );
-
-      }
+      message.textContent =
+        "Dati aggiornati dalla versione più recente di state.json.";
 
     }
 
@@ -822,6 +504,7 @@
       console.error(error);
 
       message.textContent =
+        "Errore nel caricamento di state.json: " +
         error.message;
 
     }
@@ -829,145 +512,415 @@
     finally {
 
       button.disabled = false;
-
-      button.textContent =
-        "Aggiorna ora";
+      button.textContent = "Ricarica dati";
 
     }
 
   }
 
 
-  /*
-   * Dopo aver avviato GitHub Actions controlliamo periodicamente
-   * state.json finché compare un nuovo numero di controllo.
-   */
+  function renderSummary() {
 
-  async function waitForNewCheck() {
-
-    const oldCheck =
-      currentState
-        ? currentState.total_checks
-        : 0;
-
-
-    const message =
-      document.getElementById(
-        "message"
-      );
-
-
-    /*
-     * Circa 2 minuti massimo.
-     */
-
-    for (
-      let attempt = 0;
-      attempt < 24;
-      attempt++
-    ) {
-
-      await sleep(5000);
-
-
-      try {
-
-        const response =
-          await fetch(
-            `state.json?t=${Date.now()}`
-          );
-
-
-        if (!response.ok) {
-          continue;
-        }
-
-
-        const newState =
-          await response.json();
-
-
-        if (
-          newState.total_checks >
-          oldCheck
-        ) {
-
-          currentState =
-            newState;
-
-
-          renderState(
-            newState
-          );
-
-
-          const latest =
-            newState.history[
-              newState.history.length - 1
-            ];
-
-
-          if (
-            latest.status === "changed"
-          ) {
-
-            message.textContent =
-              `Controllo #${latest.check}: cambiamento rilevato.`;
-
-          }
-
-          else {
-
-            message.textContent =
-              `Controllo #${latest.check}: nessun cambiamento rilevato.`;
-
-          }
-
-
-          return;
-
-        }
-
-      }
-
-      catch (error) {
-
-        console.error(error);
-
-      }
-
-    }
-
-
-    /*
-     * Il workflow potrebbe semplicemente essere ancora in coda.
-     */
-
-    message.textContent =
-      "Il controllo è stato avviato, ma il risultato non è ancora disponibile. Ricarica la pagina tra poco.";
-
-  }
-
-
-  function sleep(ms) {
-
-    return new Promise(
-      resolve =>
-        setTimeout(
-          resolve,
-          ms
-        )
+    const sites = Object.values(
+      stateData?.sites || {}
     );
 
+    let changed = 0;
+    let errors = 0;
+    let ok = 0;
+
+    sites.forEach(site => {
+
+      const status = getStatus(site);
+
+      if (status === "changed") {
+        changed++;
+      }
+
+      else if (status === "error") {
+        errors++;
+      }
+
+      else {
+        ok++;
+      }
+
+    });
+
+
+    document.getElementById(
+      "totalSites"
+    ).textContent = sites.length;
+
+    document.getElementById(
+      "changedSites"
+    ).textContent = changed;
+
+    document.getElementById(
+      "errorSites"
+    ).textContent = errors;
+
+    document.getElementById(
+      "okSites"
+    ).textContent = ok;
+
+    document.getElementById(
+      "lastRun"
+    ).textContent =
+      "Ultimo controllo generale: " +
+      formatDate(stateData.last_run);
+
   }
 
 
-  /*
-   * Carichiamo automaticamente lo stato
-   * quando viene aperta la pagina.
-   */
+  function renderSites() {
+
+    if (!stateData) {
+      return;
+    }
+
+    const search =
+      document
+        .getElementById("search")
+        .value
+        .trim()
+        .toLowerCase();
+
+    const filter =
+      document
+        .getElementById("filter")
+        .value;
+
+    const container =
+      document.getElementById("sites");
+
+
+    let sites = Object.entries(
+      stateData.sites || {}
+    );
+
+
+    sites = sites.filter(
+      ([id, site]) => {
+
+        const status =
+          getStatus(site);
+
+        const matchesSearch =
+          !search ||
+          site.name
+            .toLowerCase()
+            .includes(search) ||
+          site.url
+            .toLowerCase()
+            .includes(search);
+
+        const matchesFilter =
+          filter === "all" ||
+          filter === status;
+
+        return (
+          matchesSearch &&
+          matchesFilter
+        );
+
+      }
+    );
+
+
+    /*
+     * Prima i siti modificati,
+     * poi gli errori,
+     * poi gli altri.
+     */
+
+    const priority = {
+      changed: 0,
+      error: 1,
+      baseline: 2,
+      unchanged: 3
+    };
+
+
+    sites.sort((a, b) => {
+
+      const statusA =
+        getStatus(a[1]);
+
+      const statusB =
+        getStatus(b[1]);
+
+      return (
+        priority[statusA] -
+        priority[statusB]
+      );
+
+    });
+
+
+    if (!sites.length) {
+
+      container.innerHTML =
+        '<div class="empty">Nessun sito corrisponde ai filtri.</div>';
+
+      return;
+
+    }
+
+
+    container.innerHTML =
+      sites.map(
+        ([id, site]) =>
+          createSiteCard(id, site)
+      ).join("");
+
+  }
+
+
+  function createSiteCard(id, site) {
+
+    const status =
+      getStatus(site);
+
+    let lastChangeText =
+      "Mai rilevato";
+
+    if (site.last_changed) {
+
+      lastChangeText =
+        site.last_changed_check
+          ? `#${site.last_changed_check} — ${formatDate(site.last_changed)}`
+          : formatDate(site.last_changed);
+
+    }
+
+
+    const errorHtml =
+      site.last_error
+        ? `
+          <div style="
+            margin-top:12px;
+            font-size:13px;
+            color:#9a6700;
+          ">
+            ${escapeHtml(site.last_error)}
+          </div>
+        `
+        : "";
+
+
+    return `
+
+      <div class="site-card">
+
+        <div class="site-header">
+
+          <div>
+
+            <h2 class="site-name">
+              ${escapeHtml(site.name)}
+            </h2>
+
+            <div class="site-url">
+
+              <a
+                href="${escapeHtml(site.url)}"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                ${escapeHtml(site.url)}
+              </a>
+
+            </div>
+
+          </div>
+
+          <div
+            class="status ${getStatusClass(status)}"
+          >
+            ${getStatusText(status)}
+          </div>
+
+        </div>
+
+
+        <div class="site-info">
+
+          <div>
+            <div class="info-label">
+              Ultimo controllo
+            </div>
+
+            <div class="info-value">
+              ${formatDate(site.last_checked)}
+            </div>
+          </div>
+
+
+          <div>
+            <div class="info-label">
+              Ultimo cambiamento
+            </div>
+
+            <div class="info-value">
+              ${lastChangeText}
+            </div>
+          </div>
+
+
+          <div>
+            <div class="info-label">
+              Controlli totali
+            </div>
+
+            <div class="info-value">
+              ${site.total_checks || 0}
+            </div>
+          </div>
+
+        </div>
+
+        ${errorHtml}
+
+        <button
+          class="details-button"
+          onclick="toggleHistory('${id}', this)"
+        >
+          Mostra cronologia
+        </button>
+
+        <div
+          id="history-${id}"
+          class="history"
+        >
+          ${createHistory(site)}
+        </div>
+
+      </div>
+    `;
+
+  }
+
+
+  function createHistory(site) {
+
+    const history =
+      [...(site.history || [])]
+        .reverse();
+
+
+    if (!history.length) {
+      return "Nessuna cronologia.";
+    }
+
+
+    return history.map(entry => {
+
+      let statusText =
+        getStatusText(entry.status);
+
+      let cssClass = "";
+
+      if (entry.status === "changed") {
+        cssClass = "history-changed";
+      }
+
+      else if (entry.status === "error") {
+        cssClass = "history-error";
+      }
+
+
+      let extra = "";
+
+      if (
+        entry.status === "error" &&
+        entry.error
+      ) {
+
+        extra =
+          ` — ${escapeHtml(entry.error)}`;
+
+      }
+
+
+      return `
+
+        <div class="history-row">
+
+          <div>
+            Controllo #${entry.check}
+          </div>
+
+          <div>
+            ${formatDate(entry.timestamp)}
+          </div>
+
+          <div class="${cssClass}">
+            ${statusText}${extra}
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+  }
+
+
+  function toggleHistory(id, button) {
+
+    const element =
+      document.getElementById(
+        `history-${id}`
+      );
+
+    element.classList.toggle(
+      "open"
+    );
+
+    button.textContent =
+      element.classList.contains("open")
+        ? "Nascondi cronologia"
+        : "Mostra cronologia";
+
+  }
+
+
+  function escapeHtml(value) {
+
+    if (value === null ||
+        value === undefined) {
+      return "";
+    }
+
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+
+  }
+
 
   loadState();
+
+
+  /*
+   * Ricarica automaticamente state.json
+   * ogni minuto mentre la pagina è aperta.
+   *
+   * ATTENZIONE:
+   * questo NON esegue un nuovo controllo
+   * dei siti. Aggiorna soltanto la dashboard
+   * se GitHub Actions ha prodotto nuovi dati.
+   */
+
+  setInterval(
+    loadState,
+    60000
+  );
 
 </script>
 
